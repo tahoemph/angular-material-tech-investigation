@@ -1,0 +1,65 @@
+<html lang="en" >
+<head>
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+</head>
+<body ng-app="stars" ng-cloak>
+  
+    <div ng-controller="StarController">
+        <md-toolbar layout="row" style="height: 200px">
+            <md-content>
+                <img src="htdocs/images/Murdin_234_1.jpeg" style="height: 100%; object-fit: contain">
+            </md-content>
+            <md-content>
+                Stars!
+            </md-content>
+        </md-toolbar>
+        <md-list>
+            <md-list-item class="md-3-line">
+                <div class="md-list-item-text">
+                    <h2>Name</h2>
+                </div>
+                <div class="md-list-item-text">
+                    <h2>Magnitude</h2>
+                </div>
+                <div class="md-list-item-text">
+                    <h2>Distance From Sol</h2>
+                </div>
+            </md-list>
+            <md-divider></md-divider>
+            <md-list-item class="md-3-line" ng-repeat="star in stars">
+                <div class="md-list-item-text">
+                    {{star.label}}
+                </div>
+                <div class="md-list-item-text">
+                    {{star.absmag}}
+                </div>
+                <div class="md-list-item-text">
+                    {{star.dcalc}}
+                </div>
+        </md-list>
+    </div>
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  
+  <!-- Your application bootstrap  -->
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="htdocs/js/stars.js"></script>
+  <script src="htdocs/js/controllers.js"></script>
+  <script src="htdocs/js/services.js"></script>
+  
+</body>
+</html>
+
+<!--
+Copyright 2016 Google Inc. All Rights Reserved. 
+Use of this source code is governed by an MIT-style license that can be in foundin the LICENSE file at http://material.angularjs.org/license.
+-->
