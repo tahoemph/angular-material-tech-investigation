@@ -6,14 +6,16 @@
 <body ng-app="stars" ng-cloak>
   
     <div ng-controller="StarController">
-        <md-toolbar layout="row" style="height: 200px">
-            <md-content>
+        <md-toolbar layout="row" style="height: 200px" layout-align="center center">
+            <md-content hide show-gt-xs>
                 <img src="htdocs/images/Murdin_234_1.jpeg" style="height: 100%; object-fit: contain">
             </md-content>
-            <md-content>
-                <p>Stars!</p>
-            </md-content>
         </md-toolbar>
+        <md-input-container>
+          <md-select ng-model="search" placeholder="Name">
+            <md-option ng-value="star" ng-repeat="star in stars">{{ star.label }}</md-option>
+          </md-select>
+        </md-input-container>
         <md-list>
             <md-list-item class="md-3-line">
                 <div class="md-list-item-text">
@@ -25,11 +27,13 @@
                 <div class="md-list-item-text">
                     <h2>Distance From Sol</h2>
                 </div>
-            </md-list>
+            </md-list-item>
             <md-divider></md-divider>
             <md-list-item class="md-3-line" ng-repeat="star in stars">
                 <div class="md-list-item-text">
-                    {{star.label}}
+                    <md-button ng-click="openToast($index)">
+                        {{star.label}}
+                    </md-button>
                 </div>
                 <div class="md-list-item-text">
                     {{star.absmag}}
@@ -37,6 +41,7 @@
                 <div class="md-list-item-text">
                     {{star.dcalc}}
                 </div>
+            </md-list-item>
         </md-list>
     </div>
 
